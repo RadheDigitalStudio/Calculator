@@ -4,11 +4,49 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title></title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="/Calculator.css" media="all" />
+
+  <title>Calculator</title>
 </head>
 
 <body>
+  <div class="calculatorBox">
+    <div class="calculator">
+      <input type="text" id="display" disabled />
+      <div class="resultBox" id="resultB"></div>
+      <div class="Box"></div>
+        <div class="buttons">
+          <button onclick="addValue('7'); ripple(event)">7</button>
+          <button onclick="addValue('8'); ripple(event)">8</button>
+          <button onclick="addValue('9'); ripple(event)">9</button>
+          <button onclick="addValue('/'); ripple(event)">÷</button>
+
+          <button onclick="addValue('4'); ripple(event)">4</button>
+          <button onclick="addValue('5'); ripple(event)">5</button>
+          <button onclick="addValue('6'); ripple(event)">6</button>
+          <button onclick="addValue('*'); ripple(event)">×</button>
+
+          <button onclick="addValue('1'); ripple(event)">1</button>
+          <button onclick="addValue('2'); ripple(event)">2</button>
+          <button onclick="addValue('3'); ripple(event)">3</button>
+          <button onclick="addValue('-'); ripple(event)">−</button>
+
+          <button onclick="clearAll(); ripple(event)">C</button>
+          <button onclick="addValue('0'); ripple(event)">0</button>
+          <button class="equal" onclick="showResult(); ripple(event)">=</button>
+          <button onclick="addValue('+'); ripple(event)">+</button>
+        </div>
+    </div>
   
+  </div>
+  
+  
+  
+  
+  
+  
+  <script src="/Calculator.js" charset="utf-8"></script>
 </body>
 
 </html>
