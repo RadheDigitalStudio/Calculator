@@ -15,8 +15,10 @@
     <div class="calculator">
       <input type="text" id="display" disabled />
       <div class="resultBox" id="resultB">0</div>
-      <div class="Box"></div>
-        <div class="buttons">
+      <div class="Box">
+        <button onclick="historyOpen(); ripple(event)" class="historyToggle" id="historyButton"><i class="bi bi-clock-history"></i></button>
+      </div>
+        <div class="buttons" id="buttons1">
           <button onclick="clearAll(); ripple(event)">C</button>
           <button onclick="backslash(); ripple(event)">Del</button>
           <button onclick="calculate('%'); ripple(event)">%</button>
@@ -30,7 +32,7 @@
           <button onclick="calculate('4'); ripple(event)">4</button>
           <button onclick="calculate('5'); ripple(event)">5</button>
           <button onclick="calculate('6'); ripple(event)">6</button>
-          <button onclick="addValue('+'); ripple(event)">+</button>
+          <button onclick="calculate('-'); ripple(event)">-</button>
 
           <button onclick="calculate('1'); ripple(event)">1</button>
           <button onclick="calculate('2'); ripple(event)">2</button>
@@ -41,6 +43,12 @@
           <button onclick="calculate('00'); ripple(event)">00</button>
           <button onclick="calculate('.'); ripple(event)">.</button>
           <button class="equal" onclick="showResult(); ripple(event)">=</button>
+        </div>
+        <div class="history-container" id="historyContainer">
+          <h3>History</h3>
+          <ul id="historyList"></ul>
+          <button onclick="clearHistory(); ripple(event)" class="clearHistory" id="clearHistory">Clear History</button>
+          
         </div>
     </div>
   

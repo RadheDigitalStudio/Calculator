@@ -5,15 +5,9 @@
 
 body {
   border: 1px solid black;
-  margin: 0;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 900px;
-  width: 600px;
+  padding: 50px;
   place-items: center;
-  background: linear-gradient(45deg, #7B5AC8, #4A6FD1, #A8D08D);
+  background: linear-gradient(45deg, #7B5AC8, #4A6FD1, #A8D08D, #E6D5A3);
   font-family: sans-serif;
 }
 
@@ -31,19 +25,38 @@ body {
 /* Display */
 #display {
   width: 100%;
-  height: 40px;
-  font-size: 20px;
+  height: 60px;
   border: none;
   background: transparent;
   color: white;
-  border: 1px solid black ;
+  margin: 30px 0 15px 0;
+  text-align: right;
+  font-size: 45px;
+  font-weight: 400;
+}
+.resultBox {
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 15px;
+  text-align: right;
+  font-size: 25px;
+  font-weight: bold;
+  padding: 0 15px ;
+}
+.Box{
   margin: 20px 0;
 }
-
-.resultBox {
-  border: 1px solid black;
-  color: rgba(255,255,255,0.7);
-  margin-bottom: 10px;
+.Box .historyToggle {
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background: transparent;
+  color: #fff;
+  padding-left: 20px;
 }
 
 /* Buttons */
@@ -51,10 +64,10 @@ body {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
+  padding: 0 0 0 20px;
 }
 
-button {
-  padding: 25px;
+.buttons button {
   width: 65px;
   height: 65px;
   border: none;
@@ -65,8 +78,8 @@ button {
   position: relative;
   overflow: hidden;
   transition: 0.1s;
+  font-size: 25px;
 }
-
 button:active {
   transform: scale(0.9);
 }
@@ -74,6 +87,33 @@ button:active {
 .equal {
   background: #ff9500;
 }
+
+.buttons button:nth-child(1) {
+  background: #3F51B5;
+}
+.buttons button:nth-child(2) {
+  background: #3F51B5;
+}
+.buttons button:nth-child(3) {
+  background: #3F51B5;
+}
+
+.buttons button:nth-child(4) {
+  background: #3F51B5;
+}
+
+.buttons button:nth-child(8) {
+  background: #3F51B5;
+}
+
+.buttons button:nth-child(12) {
+  background: #3F51B5;
+}
+
+.buttons button:nth-child(16) {
+  background: #3F51B5;
+}
+
 
 /* Ripple */
 .ripple {
@@ -92,34 +132,30 @@ button:active {
 }
 
 /* History Panel */
-.history {
-  position: fixed;
-  right: -300px;
+.history-container {
+  position: relative;
   top: 0;
-  width: 250px;
-  height: 100%;
-  background: rgba(0,0,0,0.9);
+  width: 420px;
+  height: 360px;
+  background: transparent;
   color: white;
   padding: 20px;
   transition: 0.3s;
+  border: 1px solid #fff;
+  border-radius: 20px;
+  display: none;
 }
 
-.history.active {
-  right: 0;
-}
-
-.overlay {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  backdrop-filter: blur(5px);
-  background: rgba(0,0,0,0.3);
-  opacity: 0;
-  visibility: hidden;
-  transition: 0.3s;
-}
-
-.overlay.active {
-  opacity: 1;
-  visibility: visible;
+.history-container .clearHistory {
+  border: none;
+  position: absolute;
+  bottom: 0;
+  width: 380px;
+  margin: 20px;
+  height: 40px;
+  border-radius: 20px;
+  font-size: 25px;
+  color: #fff;
+  background: #1225FF;
+  box-shadow: 10px 10px 25px rgba(18, 37, 255, .8);
 }
