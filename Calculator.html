@@ -14,28 +14,33 @@
   <div class="calculatorBox">
     <div class="calculator">
       <input type="text" id="display" disabled />
-      <div class="resultBox" id="resultB"></div>
+      <div class="resultBox" id="resultB">0</div>
       <div class="Box"></div>
         <div class="buttons">
-          <button onclick="addValue('7'); ripple(event)">7</button>
-          <button onclick="addValue('8'); ripple(event)">8</button>
-          <button onclick="addValue('9'); ripple(event)">9</button>
-          <button onclick="addValue('/'); ripple(event)">÷</button>
-
-          <button onclick="addValue('4'); ripple(event)">4</button>
-          <button onclick="addValue('5'); ripple(event)">5</button>
-          <button onclick="addValue('6'); ripple(event)">6</button>
-          <button onclick="addValue('*'); ripple(event)">×</button>
-
-          <button onclick="addValue('1'); ripple(event)">1</button>
-          <button onclick="addValue('2'); ripple(event)">2</button>
-          <button onclick="addValue('3'); ripple(event)">3</button>
-          <button onclick="addValue('-'); ripple(event)">−</button>
-
           <button onclick="clearAll(); ripple(event)">C</button>
-          <button onclick="addValue('0'); ripple(event)">0</button>
-          <button class="equal" onclick="showResult(); ripple(event)">=</button>
+          <button onclick="backslash(); ripple(event)">Del</button>
+          <button onclick="calculate('%'); ripple(event)">%</button>
+          <button onclick="calculate('/'); ripple(event)">÷</button>
+          
+          <button onclick="calculate('7'); ripple(event)">7</button>
+          <button onclick="calculate('8'); ripple(event)">8</button>
+          <button onclick="calculate('9'); ripple(event)">9</button>
+          <button onclick="calculate('*'); ripple(event)">×</button>
+        
+          <button onclick="calculate('4'); ripple(event)">4</button>
+          <button onclick="calculate('5'); ripple(event)">5</button>
+          <button onclick="calculate('6'); ripple(event)">6</button>
           <button onclick="addValue('+'); ripple(event)">+</button>
+
+          <button onclick="calculate('1'); ripple(event)">1</button>
+          <button onclick="calculate('2'); ripple(event)">2</button>
+          <button onclick="calculate('3'); ripple(event)">3</button>
+          <button onclick="calculate('+'); ripple(event)">+</button>
+          
+          <button onclick="calculate('0'); ripple(event)">0</button>
+          <button onclick="calculate('00'); ripple(event)">00</button>
+          <button onclick="calculate('.'); ripple(event)">.</button>
+          <button class="equal" onclick="showResult(); ripple(event)">=</button>
         </div>
     </div>
   
