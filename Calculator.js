@@ -1,10 +1,10 @@
 let display = document.getElementById("display");
 let historyContainer = document.getElementById("history-container");
 let resultBox = document.getElementById("resultB");
+let historyData = JSON.parse(localStorage.getItem("history")) || [];
 
 let currentValue = "";
 let isResultShown = false;
-let historyList = [];
 
 // ================= DISPLAY =================
 
@@ -36,8 +36,16 @@ function calculate(value) {
 function calculateLive() {
   try {
     let expression = currentValue;
+    if (/[+\-*/.]$/.test(expression)) {
+      return
+    }
     let result = evaluate(expression);
     resultBox.innerText = result;
+    
+    resultBox.classList.remove("result-animate");
+    void resultBox.offsetWidth;
+    resultBox.classList.add("result-animate");
+    
   } catch {
     resultBox.innerText = "";
   }
@@ -72,6 +80,8 @@ function backslash() {
 
 }
 
+
+
 // ================= CALCULATE =================
 
 function showResult() {
@@ -83,7 +93,7 @@ function showResult() {
       currentValue = "Error";
     } else {
       // Save history
-     //addToHistory(expression + " = " + result);
+     addToHistory(expression, result);
 
       currentValue = result.toString();
       resultBox.innerText = "";
@@ -99,14 +109,24 @@ function showResult() {
   }
 }
 
+
+
 // ================= HISTORY =================
+
+// 👉 Clear history button
+function clearHistory() {
+  historyData = [];
+  localStorage.removeItem("history");
+  updateHistory();
+}
+
 
 function historyOpen() {
   let pageOpen = document.getElementById("historyContainer");
   pageOpen.classList.toggle("active");
   
   if (pageOpen.classList.contains("active")) {
-    document.getElementById("historyContainer").style.display = "flex";
+    document.getElementById("historyContainer").style.display = "block";
     document.getElementById("buttons1").style.display = "none";
     
   } else {
@@ -117,8 +137,54 @@ function historyOpen() {
   
 }
 
+function addToHistory(expression, result) {
+  let item = expression + " = " + result;
+  
+  historyData.push({
+    exp: expression,
+    res: result
+  });
+  
+  // Limit history (last 20 items)
+  if (historyData.length > 20) {
+    historyData.shift();
+  }
+  
+  localStorage.setItem("history", JSON.stringify(historyData));
+  updateHistory();
+}
 
+function updateHistory() {
+  let list = document.getElementById("historyList");
+  list.innerHTML = "";
+  
+  historyData.forEach(item => {
+    let li = document.createElement("li");
+    li.innerHTML = `
+     <div class="exp">${item.exp}</div>
+     <div class="res"> = ${item.res}</div>
+    `;
+    
+    // Click reuse (safe)
+    li.onclick = () => {
+      currentValue = item.exp.toString();
+      result = item.res.toString();
+      document.getElementById("display").value = currentValue;
+      document.getElementById("resultB").innerText = result;
+    };
+    
+    list.appendChild(li);
+  });
+}
 
+function loadHistory() {
+  let saved = localStorage.getItem("history");
+  historyData = saved ? JSON.parse(saved) : [];
+  updateHistory();
+}
+
+// Call this on page load
+loadHistory();
 
 
 
