@@ -1,4 +1,4 @@
-# Calculator
+
 # Calculator Web Application
 
 A simple, responsive, and user-friendly calculator built using HTML, CSS, and JavaScript. This application performs basic arithmetic operations with real-time results and smooth user interaction.
